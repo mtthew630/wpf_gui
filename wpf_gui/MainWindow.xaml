@@ -5,13 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpf_gui"
         mc:Ignorable="d"
-        Title="iSpot" Height="450" Width="800">
+        Title="iSpot" Height="500" Width="800">
     <Window.Resources>
         <Style TargetType="Button">
-         
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5" />
+                </Style>
+            </Style.Resources>
         </Style>
     </Window.Resources>
-
+    
     <StackPanel Margin="20">
         <Label FontSize="20">iSpot</Label>
         <Grid>
@@ -28,12 +32,14 @@
                 <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
             
-            <Label Grid.Column="1" Grid.Row="1" FontSize="14">Select your workout:</Label>
-            <StackPanel Margin="10" Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
-                <Button Name="Button1" Width="100" Height="100" Click="ButtonClicked">Open Window</Button>
-                <Button Margin="10,0" Name="Button2" Width="100" Height="100" Click="ButtonClicked">Open Window</Button>
-                <Button Name="Button3" Width="100" Height="100" Click="ButtonClicked">Open Window</Button>
-            </StackPanel>
+            <Label Grid.Column="1" Grid.Row="1" FontSize="14">Select a workout:</Label>
+            <Border Grid.Column="1" Grid.Row="2" Background="Palegreen" BorderBrush="#F9F9F9" CornerRadius="20" BorderThickness="2,2,2,2">
+                <StackPanel Margin="10" Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
+                    <Button Name="Button1" Width="100" Height="100" Click="ButtonClicked">Open Window</Button>
+                    <Button Margin="10,0" Name="Button2" Width="100" Height="100" Click="ButtonClicked">Open Window</Button>
+                    <Button Name="Button3" Width="100" Height="100" Click="ButtonClicked">Open Window</Button>
+                </StackPanel>
+            </Border>
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -53,7 +59,7 @@
             <Label Grid.Column="1" Grid.Row="1" FontSize="14">Create your own workout:</Label>
             <StackPanel Margin="10" Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
                 <Button Name="Select" Width="100" Height="50" Click="SelectClicked">Select Folder...</Button>
-                <Button Margin="10,0" Name="Record" Width="100" Height="50" Click="RecordClicked">Record</Button>
+                <Button Margin="10,0" Name="Record" Width="100" Height="50" Click="RecordClicked">Start Recording</Button>
                 <Button Name="StopR" Width="100" Height="50" Click="StopRClicked">Stop Recording</Button>
                 
             </StackPanel>
