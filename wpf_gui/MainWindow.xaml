@@ -13,62 +13,87 @@
                     <Setter Property="CornerRadius" Value="5" />
                 </Style>
             </Style.Resources>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="gray"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
-    </Window.Resources>
-    
-    <StackPanel Margin="20">
-        <Label FontSize="20">iSpot</Label>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="20"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="20"/>
-            </Grid.RowDefinitions>
-            
-            <Label Grid.Column="1" Grid.Row="1" FontSize="14">Select a workout:</Label>
-            <Border Grid.Column="1" Grid.Row="2" Background="Palegreen" BorderBrush="#F9F9F9" CornerRadius="20" BorderThickness="2,2,2,2">
-                <StackPanel Margin="10" Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
-                    <Button Name="Button1" Width="100" Height="100" Click="ButtonClicked">Open Window</Button>
-                    <Button Margin="10,0" Name="Button2" Width="100" Height="100" Click="ButtonClicked">Open Window</Button>
-                    <Button Name="Button3" Width="100" Height="100" Click="ButtonClicked">Open Window</Button>
-                </StackPanel>
-            </Border>
-        </Grid>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="20"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="20"/>
-            </Grid.RowDefinitions>
 
-            <Label Grid.Column="1" Grid.Row="1" FontSize="14">Create your own workout:</Label>
-            <StackPanel Margin="10" Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
-                <Button Name="Select" Width="100" Height="50" Click="SelectClicked">Select Folder...</Button>
-                <Button Margin="10,0" Name="Record" Width="100" Height="50" Click="RecordClicked">Start Recording</Button>
-                <Button Name="StopR" Width="100" Height="50" Click="StopRClicked">Stop Recording</Button>
-                
-            </StackPanel>
-            <StackPanel Margin="10,0" Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
-                <Button Name="Browse" Width="100" Height="50" Click="BrowseClicked">Browse...</Button>
-                <Button Margin="10,0" Name="Play" Width="100" Height="50" Click="PlayClicked">Play</Button>
-                <Button Name="StopP" Width="100" Height="50" Click="StopPClicked">Pause</Button>
-            </StackPanel>
+    </Window.Resources>
+
+    <StackPanel Margin="20">
+        
+        <Label Margin="0,0,0,10" FontSize="20">iSpot</Label>
+        
+        <Border Grid.Column="1" Grid.Row="2" Background="#e1e7ed" BorderBrush="#e1e7ed" CornerRadius="20" BorderThickness="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="1" Grid.Row="1" FontSize="14" FontWeight="Bold">Select a workout:</Label>
+                <Border Grid.Column="1" Grid.Row="2" Background="#e1e7ed" BorderBrush="#e1e7ed" CornerRadius="20" BorderThickness="0">
+                    <StackPanel Margin="10" Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
+                        <Button Name="Button1" Margin="10,0,10,0" Background="#767ab9" Width="100" Height="100" Click="WarmupClicked">Warm Up</Button>
+                        <Button Name="Button2" Background="#767ab9" Width="100" Height="100" Click="SquatClicked">Squats</Button>
+                        <Button Name="Button3" Margin="10,0,10,0" Background="#767ab9" Width="100" Height="100" Click="ShoulderClicked">Shoulder Press</Button>
+                        <Button Name="Button4" Background="#767ab9" Width="100" Height="100" Click="LegClicked">Leg Raises</Button>
+                        <Button Name="Button5" Margin="10,0,10,0" Background="#767ab9" Width="100" Height="100" Click="LateralClicked">Lateral Raises</Button>
+                        <Button Name="Button6" Margin="0,0,10,0" Background="#767ab9" Width="100" Height="100" Click="ButtonClicked">Open Window</Button>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
         </Grid>
+        <Border Grid.Column="1" Grid.Row="2" Background="#e1e7ed" BorderBrush="#e1e7ed" CornerRadius="20" BorderThickness="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="1" Grid.Row="1" FontSize="14" FontWeight="Bold">Create my workout:</Label>
+                <StackPanel Margin="10" Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
+                    <Button Name="Select" Background="white" Width="100" Height="50" Click="SelectClicked">Select Folder...</Button>
+                    <Button Name="Record" Background="IndianRed" Margin="10,0" Width="100" Height="50" Click="RecordClicked">Start Recording</Button>
+                    <Button Name="StopR" Background="IndianRed" Width="100" Height="50" Click="StopRClicked">Stop Recording</Button>
+                
+                </StackPanel>
+                <Label Grid.Column="3" Grid.Row="1" FontSize="14" FontWeight="Bold">Select my own workout:</Label>
+                <StackPanel Margin="10,0" Grid.Column="3" Grid.Row="2" Orientation="Horizontal">
+                    <Button Name="Browse" Background="white" Width="100" Height="50" Click="BrowseClicked">Browse...</Button>
+                    <Button Margin="10,0" Background="PaleGreen" Name="Play" Width="100" Height="50" Click="PlayClicked">Play</Button>
+                    <Button Name="StopP" Background="PaleGreen" Width="100" Height="50" Click="StopPClicked">Pause</Button>
+                </StackPanel>
+            </Grid>
+            
+        </Border>
+        <TextBlock FontSize="8" FontStyle="Italic">WARNING: Actions performed by trained professionals. Please consult your physician before use.</TextBlock>
     </StackPanel>
     <!-- <Grid>
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">

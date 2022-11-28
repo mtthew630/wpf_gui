@@ -33,6 +33,11 @@ namespace wpf_gui
             sample.Show();
         }
 
+        private void WarmupClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void SelectClicked(object sender, RoutedEventArgs e)
         {
             // display filepath user wants to save recordings to
