@@ -14,16 +14,43 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.IO;
+using System;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
+
+unsafe struct lib
+{
+    [DllImport("C:\\Users\\dsk20\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    public extern static void stop_recording();
+    [DllImport("C:\\Users\\dsk20\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    public extern static void stop_replay();
+    [DllImport("C:\\Users\\dsk20\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    public extern static void run_render_thread();
+    
+    [DllImport("C:\\Users\\dsk20\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    public extern static void start_recording([In, Out, MarshalAs(UnmanagedType.LPStr)] string s);
+    [DllImport("C:\\Users\\dsk20\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    public extern static void start_replay([In, Out, MarshalAs(UnmanagedType.LPStr)] string s);
+    //[DllImport("lib.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    //public extern static void m_memcpy(void* dst, void* src, int n);
+    // public extern static [In,Out,MarshalAs(UnmanagedType.LPStr)]string m_gets();
+
+}
 
 namespace wpf_gui
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    ///
+    
     public partial class MainWindow : Window
     {
+        string read_from = null;
+        string write_to = null; 
         public MainWindow()
         {
+            lib.run_render_thread();
             InitializeComponent();
         }
 
@@ -55,27 +82,29 @@ namespace wpf_gui
                 File.WriteAllText(dlg.FileName, fileText);
                 // Save document
                 string filename = dlg.FileName;
-                MessageBox.Show(filename);
+                //MessageBox.Show(filename);
+                write_to = filename;
             }
         }
         private void RecordClicked(object sender, RoutedEventArgs e)
         {
-            
+            //MessageBox.Show("RecordClicked");
+            lib.start_recording(write_to);
         }
 
         private void StopRClicked(object sender, RoutedEventArgs e)
         {
-
+            lib.stop_recording();
         }
 
         private void PlayClicked(object sender, RoutedEventArgs e)
         {
-            
+            lib.start_replay(read_from);   
         }
 
         private void StopPClicked(object sender, RoutedEventArgs e)
         {
-
+            lib.stop_replay();
         }
 
         private void BrowseClicked(object sender, RoutedEventArgs e)
@@ -87,7 +116,8 @@ namespace wpf_gui
             if(response == true)
             {
                 string filepath = openFileDialog.FileName;
-                MessageBox.Show(filepath);
+                //MessageBox.Show(filepath);
+                read_from = filepath;
             }
         }
     }
