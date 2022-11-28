@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpf_gui"
         mc:Ignorable="d"
-        Title="iSpot" Height="500" Width="800">
+        Title="iSpot" Height="600" Width="800">
     <Window.Resources>
         <Style TargetType="Button">
             <Style.Resources>
@@ -24,9 +24,12 @@
     </Window.Resources>
 
     <StackPanel Margin="20">
+        <StackPanel Orientation="Horizontal">
+            <Image Height="100" Width="100" Source="/Images/iSpot_Logo.png" />
+            <Label Margin="0,0,0,0" FontSize="30" Content="iSpot" VerticalAlignment="Center"/>
+        </StackPanel>
         
-        <Label Margin="0,0,0,10" FontSize="20">iSpot</Label>
-        
+
         <Border Grid.Column="1" Grid.Row="2" Background="#e1e7ed" BorderBrush="#e1e7ed" CornerRadius="20" BorderThickness="0">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -42,15 +45,15 @@
                     <RowDefinition Height="20"/>
                 </Grid.RowDefinitions>
 
-                <Label Grid.Column="1" Grid.Row="1" FontSize="14" FontWeight="Bold">Select a workout:</Label>
+                <Label Grid.Column="1" Grid.Row="1" FontSize="14" FontWeight="Bold" Content="Select a workout:"/>
                 <Border Grid.Column="1" Grid.Row="2" Background="#e1e7ed" BorderBrush="#e1e7ed" CornerRadius="20" BorderThickness="0">
                     <StackPanel Margin="10" Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
-                        <Button Name="Button1" Margin="10,0,10,0" Background="#767ab9" Width="100" Height="100" Click="WarmupClicked">Warm Up</Button>
-                        <Button Name="Button2" Background="#767ab9" Width="100" Height="100" Click="SquatClicked">Squats</Button>
-                        <Button Name="Button3" Margin="10,0,10,0" Background="#767ab9" Width="100" Height="100" Click="ShoulderClicked">Shoulder Press</Button>
-                        <Button Name="Button4" Background="#767ab9" Width="100" Height="100" Click="LegClicked">Leg Raises</Button>
-                        <Button Name="Button5" Margin="10,0,10,0" Background="#767ab9" Width="100" Height="100" Click="LateralClicked">Lateral Raises</Button>
-                        <Button Name="Button6" Margin="0,0,10,0" Background="#767ab9" Width="100" Height="100" Click="ButtonClicked">Open Window</Button>
+                        <Button x:Name="Button1" Margin="10,0,10,0" Background="#767ab9" Width="100" Height="100" Click="WarmupClicked" Content="Warm Up"/>
+                        <Button x:Name="Button2" Background="#767ab9" Width="100" Height="100" Click="SquatClicked" Content="Squats"/>
+                        <Button x:Name="Button3" Margin="10,0,10,0" Background="#767ab9" Width="100" Height="100" Click="ShoulderClicked" Content="Shoulder Press"/>
+                        <Button x:Name="Button4" Background="#767ab9" Width="100" Height="100" Click="LegClicked" Content="Leg Raises"/>
+                        <Button x:Name="Button5" Margin="10,0,10,0" Background="#767ab9" Width="100" Height="100" Click="LateralClicked" Content="Lateral Raises"/>
+                        <Button x:Name="Button6" Margin="0,0,10,0" Background="#767ab9" Width="100" Height="100" Click="ButtonClicked" Content="Open Window"/>
                     </StackPanel>
                 </Border>
             </Grid>
@@ -77,23 +80,25 @@
                     <RowDefinition Height="20"/>
                 </Grid.RowDefinitions>
 
-                <Label Grid.Column="1" Grid.Row="1" FontSize="14" FontWeight="Bold">Create my workout:</Label>
+                <Label Grid.Column="1" Grid.Row="1" FontSize="14" FontWeight="Bold" Content="Create my workout:"/>
                 <StackPanel Margin="10" Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
-                    <Button Name="Select" Background="white" Width="100" Height="50" Click="SelectClicked">Select Folder...</Button>
-                    <Button Name="Record" Background="IndianRed" Margin="10,0" Width="100" Height="50" Click="RecordClicked">Start Recording</Button>
-                    <Button Name="StopR" Background="IndianRed" Width="100" Height="50" Click="StopRClicked">Stop Recording</Button>
-                
+                    <Button x:Name="Select" Background="white" Width="100" Height="50" Click="SelectClicked" Content="Select Folder..."/>
+                    <Button x:Name="Record" Background="IndianRed" Margin="10,0" Width="100" Height="50" Click="RecordClicked" Content="Start Recording"/>
+                    <Button x:Name="StopR" Background="IndianRed" Width="100" Height="50" Click="StopRClicked" Content="Stop Recording"/>
+
                 </StackPanel>
-                <Label Grid.Column="3" Grid.Row="1" FontSize="14" FontWeight="Bold">Select my own workout:</Label>
+                <Label Grid.Column="3" Grid.Row="1" FontSize="14" FontWeight="Bold" Content="Select my own workout:"/>
                 <StackPanel Margin="10,0" Grid.Column="3" Grid.Row="2" Orientation="Horizontal">
-                    <Button Name="Browse" Background="white" Width="100" Height="50" Click="BrowseClicked">Browse...</Button>
-                    <Button Margin="10,0" Background="PaleGreen" Name="Play" Width="100" Height="50" Click="PlayClicked">Play</Button>
-                    <Button Name="StopP" Background="PaleGreen" Width="100" Height="50" Click="StopPClicked">Pause</Button>
+                    <Button x:Name="Browse" Background="white" Width="100" Height="50" Click="BrowseClicked" Content="Browse..."/>
+                    <Button Margin="10,0" Background="PaleGreen" x:Name="Play" Width="100" Height="50" Click="PlayClicked" Content="Play"/>
+                    <Button x:Name="StopP" Background="PaleGreen" Width="100" Height="50" Click="StopPClicked" Content="Pause"/>
                 </StackPanel>
             </Grid>
-            
+
         </Border>
-        <TextBlock FontSize="8" FontStyle="Italic">WARNING: Actions performed by trained professionals. Please consult your physician before use.</TextBlock>
+        <TextBlock FontSize="8" FontStyle="Italic"><Run Text="WARNING: Actions performed by trained professionals. Please consult your physician before use."/></TextBlock>
+
+
     </StackPanel>
     <!-- <Grid>
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
