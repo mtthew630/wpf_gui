@@ -31,6 +31,7 @@ unsafe struct lib
     [DllImport("C:\\Users\\Matthew\\Desktop\\2022-2023\\CSCE_483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
     public extern static void start_recording([In, Out, MarshalAs(UnmanagedType.LPStr)] string s);
     [DllImport("C:\\Users\\Matthew\\Desktop\\2022-2023\\CSCE_483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+
     public extern static void start_replay([In, Out, MarshalAs(UnmanagedType.LPStr)] string s);
 
     //------------
@@ -65,7 +66,28 @@ namespace wpf_gui
 
         private void WarmupClicked(object sender, RoutedEventArgs e)
         {
+            lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\Warmup.txt");
+        }
 
+
+        private void SquatClicked(object sender, RoutedEventArgs e)
+        {
+            lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\Squats.txt");
+        }
+
+        private void ShoulderClicked(object sender, RoutedEventArgs e)
+        {
+            lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\shoulderPress.txt");
+        }
+
+        private void LegClicked(object sender, RoutedEventArgs e)
+        {
+            lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\LegRaises.txt");
+        }
+
+        private void LateralClicked(object sender, RoutedEventArgs e)
+        {
+            lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\LateralRaises.txt");
         }
 
         private void SelectClicked(object sender, RoutedEventArgs e)
