@@ -102,9 +102,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="recordings\Warmup.txt" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\iSpot_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recordings\LateralRaises.txt" />
+    <Resource Include="recordings\LegRaises.txt" />
+    <Resource Include="recordings\shoulderPress.txt" />
+    <Resource Include="recordings\Squats.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

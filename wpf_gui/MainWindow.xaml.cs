@@ -20,16 +20,16 @@ using System.Diagnostics;
 
 unsafe struct lib
 {
-    [DllImport("C:\\Users\\dsk20\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("C:\\csce483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
     public extern static void stop_recording();
-    [DllImport("C:\\Users\\dsk20\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("C:\\csce483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
     public extern static void stop_replay();
-    [DllImport("C:\\Users\\dsk20\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("C:\\csce483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
     public extern static void run_render_thread();
     
-    [DllImport("C:\\Users\\dsk20\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("C:\\csce483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
     public extern static void start_recording([In, Out, MarshalAs(UnmanagedType.LPStr)] string s);
-    [DllImport("C:\\Users\\dsk20\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("C:\\csce483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
     public extern static void start_replay([In, Out, MarshalAs(UnmanagedType.LPStr)] string s);
     //[DllImport("lib.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
     //public extern static void m_memcpy(void* dst, void* src, int n);
@@ -62,7 +62,28 @@ namespace wpf_gui
 
         private void WarmupClicked(object sender, RoutedEventArgs e)
         {
+            lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\Warmup.txt");
+        }
 
+
+        private void SquatClicked(object sender, RoutedEventArgs e)
+        {
+            lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\Squats.txt");
+        }
+
+        private void ShoulderClicked(object sender, RoutedEventArgs e)
+        {
+            lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\shoulderPress.txt");
+        }
+
+        private void LegClicked(object sender, RoutedEventArgs e)
+        {
+            lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\LegRaises.txt");
+        }
+
+        private void LateralClicked(object sender, RoutedEventArgs e)
+        {
+            lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\LateralRaises.txt");
         }
 
         private void SelectClicked(object sender, RoutedEventArgs e)
