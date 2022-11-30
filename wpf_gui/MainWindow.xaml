@@ -77,6 +77,7 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="20"/>
                 </Grid.RowDefinitions>
 
@@ -93,6 +94,12 @@
                     <Button Margin="10,0" Background="PaleGreen" x:Name="Play" Width="100" Height="50" Click="PlayClicked" Content="Play"/>
                     <Button x:Name="StopP" Background="PaleGreen" Width="100" Height="50" Click="StopPClicked" Content="Pause"/>
                 </StackPanel>
+                <StackPanel Grid.Column="3" Grid.Row="3">
+                    <TextBlock x:Name = "textBlock1" Margin = "10" Text = "Current value: 0" />
+                    <Slider ValueChanged="PlaybackSpeed"
+                        Maximum="100" TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="True"></Slider>
+                </StackPanel>
+                
             </Grid>
 
         </Border>

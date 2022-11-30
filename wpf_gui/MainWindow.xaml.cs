@@ -20,19 +20,23 @@ using System.Diagnostics;
 using System.Reflection;
 using Path = System.IO.Path;
 
+
 unsafe struct lib
 {
-    [DllImport("C:\\csce483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("C:\\Users\\Matthew\\Desktop\\2022-2023\\CSCE_483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
     public extern static void stop_recording();
-    [DllImport("C:\\csce483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("C:\\Users\\Matthew\\Desktop\\2022-2023\\CSCE_483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
     public extern static void stop_replay();
-    [DllImport("C:\\csce483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("C:\\Users\\Matthew\\Desktop\\2022-2023\\CSCE_483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
     public extern static void run_render_thread();
     
-    [DllImport("C:\\csce483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("C:\\Users\\Matthew\\Desktop\\2022-2023\\CSCE_483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
     public extern static void start_recording([In, Out, MarshalAs(UnmanagedType.LPStr)] string s);
-    [DllImport("C:\\csce483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("C:\\Users\\Matthew\\Desktop\\2022-2023\\CSCE_483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+
     public extern static void start_replay([In, Out, MarshalAs(UnmanagedType.LPStr)] string s);
+
+    //------------
     //[DllImport("lib.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
     //public extern static void m_memcpy(void* dst, void* src, int n);
     // public extern static [In,Out,MarshalAs(UnmanagedType.LPStr)]string m_gets();
@@ -152,5 +156,13 @@ namespace wpf_gui
                 read_from = filepath;
             }
         }
+
+        private void PlaybackSpeed(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            int val = Convert.ToInt32(e.NewValue);
+            string msg = String.Format("Current value: {0}", val);
+            this.textBlock1.Text = msg;
+        }
+
     }
 }
