@@ -17,6 +17,8 @@ using System.IO;
 using System;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using System.Reflection;
+using Path = System.IO.Path;
 
 unsafe struct lib
 {
@@ -62,28 +64,37 @@ namespace wpf_gui
 
         private void WarmupClicked(object sender, RoutedEventArgs e)
         {
-            lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\Warmup.txt");
+            string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"..\..\recordings\Warmup.txt");
+            lib.start_replay(path);
         }
 
 
         private void SquatClicked(object sender, RoutedEventArgs e)
         {
-            lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\Squats.txt");
+            //lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\Squats.txt");
+            string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"..\..\recordings\Squats.txt");
+            lib.start_replay(path);
         }
 
         private void ShoulderClicked(object sender, RoutedEventArgs e)
         {
-            lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\shoulderPress.txt");
+            //lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\shoulderPress.txt");
+            string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"..\..\recordings\shoulderPress.txt");
+            lib.start_replay(path);
         }
 
         private void LegClicked(object sender, RoutedEventArgs e)
         {
-            lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\LegRaises.txt");
+            //lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\LegRaises.txt");
+            string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"..\..\recordings\LegRaises.txt");
+            lib.start_replay(path);
         }
 
         private void LateralClicked(object sender, RoutedEventArgs e)
         {
-            lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\LateralRaises.txt");
+            //lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\LateralRaises.txt");
+            string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"..\..\recordings\LateralRaises.txt");
+            lib.start_replay(path);
         }
 
         private void SelectClicked(object sender, RoutedEventArgs e)
