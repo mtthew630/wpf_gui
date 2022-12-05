@@ -23,16 +23,16 @@ using Path = System.IO.Path;
 
 unsafe struct lib
 {
-    [DllImport("C:\\Users\\Matthew\\Desktop\\2022-2023\\CSCE_483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("C:\\csce483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
     public extern static void stop_recording();
-    [DllImport("C:\\Users\\Matthew\\Desktop\\2022-2023\\CSCE_483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("C:\\csce483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
     public extern static void stop_replay();
-    [DllImport("C:\\Users\\Matthew\\Desktop\\2022-2023\\CSCE_483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("C:\\csce483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
     public extern static void run_render_thread();
     
-    [DllImport("C:\\Users\\Matthew\\Desktop\\2022-2023\\CSCE_483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("C:\\csce483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
     public extern static void start_recording([In, Out, MarshalAs(UnmanagedType.LPStr)] string s);
-    [DllImport("C:\\Users\\Matthew\\Desktop\\2022-2023\\CSCE_483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("C:\\csce483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
 
     public extern static void start_replay([In, Out, MarshalAs(UnmanagedType.LPStr)] string s);
 
@@ -53,7 +53,8 @@ namespace wpf_gui
     public partial class MainWindow : Window
     {
         string read_from = null;
-        string write_to = null; 
+        string write_to = null;
+        string clicked = null;
         public MainWindow()
         {
             lib.run_render_thread();
@@ -70,6 +71,7 @@ namespace wpf_gui
         {
             string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"..\..\recordings\Warmup.txt");
             lib.start_replay(path);
+            clicked = path;
         }
 
 
@@ -78,6 +80,7 @@ namespace wpf_gui
             //lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\Squats.txt");
             string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"..\..\recordings\Squats.txt");
             lib.start_replay(path);
+            clicked = path;
         }
 
         private void ShoulderClicked(object sender, RoutedEventArgs e)
@@ -85,6 +88,7 @@ namespace wpf_gui
             //lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\shoulderPress.txt");
             string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"..\..\recordings\shoulderPress.txt");
             lib.start_replay(path);
+            clicked = path;
         }
 
         private void LegClicked(object sender, RoutedEventArgs e)
@@ -92,6 +96,7 @@ namespace wpf_gui
             //lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\LegRaises.txt");
             string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"..\..\recordings\LegRaises.txt");
             lib.start_replay(path);
+            clicked = path;
         }
 
         private void LateralClicked(object sender, RoutedEventArgs e)
@@ -99,6 +104,7 @@ namespace wpf_gui
             //lib.start_replay("C:\\csce483\\wpf_gui\\wpf_gui\\recordings\\LateralRaises.txt");
             string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"..\..\recordings\LateralRaises.txt");
             lib.start_replay(path);
+            clicked = path;
         }
 
         private void SelectClicked(object sender, RoutedEventArgs e)
@@ -143,6 +149,16 @@ namespace wpf_gui
             lib.stop_replay();
         }
 
+        private void Resume(object sender, RoutedEventArgs e)
+        {
+            lib.start_replay(clicked);
+        }
+
+        private void Pause(object sender, RoutedEventArgs e)
+        {
+            lib.stop_replay();
+        }
+
         private void BrowseClicked(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -157,12 +173,12 @@ namespace wpf_gui
             }
         }
 
-        private void PlaybackSpeed(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            int val = Convert.ToInt32(e.NewValue);
-            string msg = String.Format("Current value: {0}", val);
-            this.textBlock1.Text = msg;
-        }
+        //private void PlaybackSpeed(object sender, RoutedPropertyChangedEventArgs<double> e)
+        //{
+        //    int val = Convert.ToInt32(e.NewValue);
+        //    string msg = String.Format("Current value: {0}", val);
+        //    this.textBlock1.Text = msg;
+        //}
 
     }
 }

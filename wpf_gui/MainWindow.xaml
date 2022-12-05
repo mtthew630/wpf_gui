@@ -28,9 +28,9 @@
             <Image Height="100" Width="100" Source="/Images/iSpot_Logo.png" />
             <Label Margin="0,0,0,0" FontSize="30" Content="iSpot" VerticalAlignment="Center"/>
         </StackPanel>
-        
 
-        <Border Grid.Column="1" Grid.Row="2" Background="#e1e7ed" BorderBrush="#e1e7ed" CornerRadius="20" BorderThickness="0">
+
+        <Border Grid.Column="1" Grid.Row="2" Background="#e1e7ed" BorderBrush="#e1e7ed" CornerRadius="20" BorderThickness="0" Height="236">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="20"/>
@@ -48,12 +48,17 @@
                 <Label Grid.Column="1" Grid.Row="1" FontSize="14" FontWeight="Bold" Content="Select a workout:"/>
                 <Border Grid.Column="1" Grid.Row="2" Background="#e1e7ed" BorderBrush="#e1e7ed" CornerRadius="20" BorderThickness="0">
                     <StackPanel Margin="10" Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
-                        <Button x:Name="Button1" Margin="10,0,10,0" Background="#767ab9" Width="100" Height="100" Click="WarmupClicked" Content="Warm Up"/>
-                        <Button x:Name="Button2" Background="#767ab9" Width="100" Height="100" Click="SquatClicked" Content="Squats"/>
-                        <Button x:Name="Button3" Margin="10,0,10,0" Background="#767ab9" Width="100" Height="100" Click="ShoulderClicked" Content="Shoulder Press"/>
-                        <Button x:Name="Button4" Background="#767ab9" Width="100" Height="100" Click="LegClicked" Content="Leg Raises"/>
-                        <Button x:Name="Button5" Margin="10,0,10,0" Background="#767ab9" Width="100" Height="100" Click="LateralClicked" Content="Lateral Raises"/>
-                        <Button x:Name="Button6" Margin="0,0,10,0" Background="#767ab9" Width="100" Height="100" Click="ButtonClicked" Content="Open Window"/>
+                        <Button x:Name="Button1" Margin="10,0,10,0" Background="#767ab9" Width="120" Height="100" Click="WarmupClicked" Content="Warm Up"/>
+                        <Button x:Name="Button2" Margin="10,0,10,0" Background="#767ab9" Width="120" Height="100" Click="SquatClicked" Content="Squats"/>
+                        <Button x:Name="Button3" Margin="10,0,10,0" Background="#767ab9" Width="120" Height="100" Click="ShoulderClicked" Content="Shoulder Press"/>
+                        <Button x:Name="Button4" Margin="10,0,10,0" Background="#767ab9" Width="120" Height="100" Click="LegClicked" Content="Leg Raises"/>
+                        <Button x:Name="Button5" Margin="10,0,10,0" Background="#767ab9" Width="120" Height="100" Click="LateralClicked" Content="Lateral Raises"/>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="3" Background="#e1e7ed" BorderBrush="#e1e7ed" CornerRadius="20" BorderThickness="0" Margin="0,0,0,-37">
+                    <StackPanel Margin="282,10,10,10" Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+                        <Button x:Name="Button7" Margin="10,0,10,0" Background="IndianRed" Width="60" Height="30" Click="Pause" Content="Pause"/>
+                        <Button x:Name="Button6" Background="PaleGreen" Width="60" Height="30" Click="Resume" Content="Resume"/>
                     </StackPanel>
                 </Border>
             </Grid>
@@ -63,7 +68,7 @@
                 <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
         </Grid>
-        <Border Grid.Column="1" Grid.Row="2" Background="#e1e7ed" BorderBrush="#e1e7ed" CornerRadius="20" BorderThickness="0">
+        <Border Grid.Column="1" Grid.Row="2" Background="#e1e7ed" BorderBrush="#e1e7ed" CornerRadius="20" BorderThickness="0" Height="150">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="20"/>
@@ -94,16 +99,17 @@
                     <Button Margin="10,0" Background="PaleGreen" x:Name="Play" Width="100" Height="50" Click="PlayClicked" Content="Play"/>
                     <Button x:Name="StopP" Background="PaleGreen" Width="100" Height="50" Click="StopPClicked" Content="Pause"/>
                 </StackPanel>
+                <!--
                 <StackPanel Grid.Column="3" Grid.Row="3">
                     <TextBlock x:Name = "textBlock1" Margin = "10" Text = "Current value: 0" />
                     <Slider ValueChanged="PlaybackSpeed"
                         Maximum="100" TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="True"></Slider>
                 </StackPanel>
-                
+                -->
             </Grid>
 
         </Border>
-        <TextBlock FontSize="8" FontStyle="Italic"><Run Text="WARNING: Actions performed by trained professionals. Please consult your physician before use."/></TextBlock>
+        <TextBlock FontSize="12" FontStyle="Italic" Height="34"><Run/><LineBreak/><Run Text="WARNING: Only perform workouts that you are comfortable with, do not try to overexert yourself as this could lead to severe injury."/></TextBlock>
 
 
     </StackPanel>
