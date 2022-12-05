@@ -30,8 +30,8 @@
         </StackPanel>
 
 
-        <Border Grid.Column="1" Grid.Row="2" Background="#e1e7ed" BorderBrush="#e1e7ed" CornerRadius="20" BorderThickness="0" Height="236">
-            <Grid>
+        <Border Grid.Column="1" Grid.Row="2" Background="#e1e7ed" BorderBrush="#e1e7ed" CornerRadius="20" BorderThickness="0" Height="246">
+            <Grid Margin="0,0,0,21">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="20"/>
                     <ColumnDefinition Width="auto"/>
@@ -68,7 +68,7 @@
                 <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
         </Grid>
-        <Border Grid.Column="1" Grid.Row="2" Background="#e1e7ed" BorderBrush="#e1e7ed" CornerRadius="20" BorderThickness="0" Height="150">
+        <Border Grid.Column="1" Grid.Row="2" Background="#e1e7ed" BorderBrush="#e1e7ed" CornerRadius="20" BorderThickness="0" Height="120">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="20"/>
