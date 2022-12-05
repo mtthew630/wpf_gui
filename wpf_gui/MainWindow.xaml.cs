@@ -23,16 +23,16 @@ using Path = System.IO.Path;
 
 unsafe struct lib
 {
-    [DllImport("C:\\csce483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("..\\..\\dll\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
     public extern static void stop_recording();
-    [DllImport("C:\\csce483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("..\\..\\dll\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
     public extern static void stop_replay();
-    [DllImport("C:\\csce483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("..\\..\\dll\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
     public extern static void run_render_thread();
     
-    [DllImport("C:\\csce483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("..\\..\\dll\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
     public extern static void start_recording([In, Out, MarshalAs(UnmanagedType.LPStr)] string s);
-    [DllImport("C:\\csce483\\wiifit_windows\\x64\\Debug\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("..\\..\\dll\\dll1.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
 
     public extern static void start_replay([In, Out, MarshalAs(UnmanagedType.LPStr)] string s);
 
